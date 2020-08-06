@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_06_045348) do
+ActiveRecord::Schema.define(version: 2020_08_06_053552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,28 @@ ActiveRecord::Schema.define(version: 2020_08_06_045348) do
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "listings", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.float "price"
+    t.bigint "brand_id", null: false
+    t.bigint "style_id", null: false
+    t.bigint "size_id", null: false
+    t.bigint "state_id", null: false
+    t.bigint "city_id", null: false
+    t.bigint "postcode_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["brand_id"], name: "index_listings_on_brand_id"
+    t.index ["city_id"], name: "index_listings_on_city_id"
+    t.index ["postcode_id"], name: "index_listings_on_postcode_id"
+    t.index ["size_id"], name: "index_listings_on_size_id"
+    t.index ["state_id"], name: "index_listings_on_state_id"
+    t.index ["style_id"], name: "index_listings_on_style_id"
+    t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
   create_table "postcodes", force: :cascade do |t|
@@ -87,6 +109,13 @@ ActiveRecord::Schema.define(version: 2020_08_06_045348) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "listings", "brands"
+  add_foreign_key "listings", "cities"
+  add_foreign_key "listings", "postcodes"
+  add_foreign_key "listings", "sizes"
+  add_foreign_key "listings", "states"
+  add_foreign_key "listings", "styles"
+  add_foreign_key "listings", "users"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "sizes"
   add_foreign_key "products", "styles"
