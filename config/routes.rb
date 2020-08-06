@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :listings
-  get '/listings/dashboard', to: 'listings#dashboard', as: 'listings_dashboard'
+  get '/listings/dashboard/:id', to: 'listings#dashboard', as: 'listings_dashboard'
   resources :profiles
   devise_for :users, controllers: { registrations: "registrations" }
   resources :products
