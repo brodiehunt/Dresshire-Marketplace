@@ -7,6 +7,10 @@ class ListingsController < ApplicationController
     @listings = Listing.all
   end
 
+  def dashboard
+    @listings = Listing.where(user_id: current_user.id)
+  end
+
   # GET /listings/1
   # GET /listings/1.json
   def show
