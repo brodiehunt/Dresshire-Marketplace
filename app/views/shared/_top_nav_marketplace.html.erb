@@ -69,7 +69,7 @@
                     <a href="#">Messages</a>
                   </div>
                   <div class="container-fluid bg-dark border-bottom py-2 ">
-                    <a href="<%= listings_dashboard_path %> ">Manage Listing</a>
+                    <a href="<%= listings_dashboard_path(current_user.id) %> ">Manage Listing</a>
                   </div>
                   <div class="container-fluid bg-dark border-bottom py-2 ">
                     <a href="<%= new_listing_path %>">Create Listing</a>
@@ -120,7 +120,7 @@
                   <a href="#">Messages</a>
                 </div>
                 <div class="container py-2 bg-light border-bottom">
-                  <a href="<%= listings_dashboard_path %> ">Manage Listings</a>
+                  <a href="<%= listings_dashboard_path(current_user.id) %> ">Manage Listings</a>
                 </div>
                 <div class="container py-2 bg-light border-bottom">
                   <a href="<%= new_listing_path %>">Create Listing</a>
