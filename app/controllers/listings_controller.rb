@@ -10,15 +10,34 @@ class ListingsController < ApplicationController
   # GET /listings/1
   # GET /listings/1.json
   def show
+    @brands = Brand.all
+    @styles = Style.all
+    @sizes = Size.all
+    @states = State.all
+    @postcodes = Postcode.all
+    @cities = City.all
+    @users = User.all
   end
 
   # GET /listings/new
   def new
     @listing = Listing.new
+    @styles = Style.all
+    @brands = Brand.all
+    @sizes = Size.all
+    @states = State.all
+    @postcodes = Postcode.all
+    @cities = City.all
   end
 
   # GET /listings/1/edit
   def edit
+    @styles = Style.all
+    @brands = Brand.all
+    @sizes = Size.all
+    @states = State.all
+    @postcodes = Postcode.all
+    @cities = City.all
   end
 
   # POST /listings
