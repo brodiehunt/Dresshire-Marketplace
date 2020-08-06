@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: Marketplace_app_production
-  username: Marketplace_app
-  password: <%= ENV['MARKETPLACE_APP_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DATABASE_URL'] %>
+  # username: Marketplace_app
+  # password: <%= ENV['MARKETPLACE_APP_DATABASE_PASSWORD'] %>
