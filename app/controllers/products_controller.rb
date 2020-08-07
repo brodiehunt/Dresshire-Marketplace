@@ -25,6 +25,9 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+    @brands = Brand.all
+    @styles = Style.all
+    @sizes = Size.all
   end
 
   # POST /products
