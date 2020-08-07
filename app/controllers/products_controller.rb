@@ -10,11 +10,17 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    @brands = Brand.all
+    @styles = Style.all
+    @sizes = Size.all
   end
 
   # GET /products/new
   def new
     @product = Product.new
+    @brands = Brand.all
+    @styles = Style.all
+    @sizes = Size.all
   end
 
   # GET /products/1/edit
