@@ -47,6 +47,11 @@
     <%= form.select :postcode_id, @postcodes.map {|s| [s.title, s.id ]} %>
   </div>
 
+  <div>
+    <%= form.file_field :picture, accept:
+    'image/png,image/gif,image/jpeg,image/jpg' %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

@@ -6,4 +6,5 @@ class Listing < ApplicationRecord
   belongs_to :city
   belongs_to :postcode
   belongs_to :user
+  has_one_attached :picture
 end
