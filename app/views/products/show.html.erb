@@ -1,3 +1,45 @@
+<div class="container">
+  <div class="row my-5 justify-content-center border">
+    <div class="col-10 col-md-8 border">
+      <div class="row">
+        <div class="col-10 col-md-5">
+          <%# <%= image_tag @listing.picture if @listing.picture.attached? %> 
+        </div>
+        <div class="col-10 col-md-5">
+        </div>
+      </div>
+      <div class="row">
+      </div>
+    </div>
+    <div class="col-10 col-md-4 border">
+      <div class="row d-flex justify-content-center mt-5">
+        <h4><%= @product.title %></h4>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <h6><%= @brands.find(@product.brand_id).title %></h6>
+      </div>
+      <div class="row d-flex my-3">
+        <div class="col d-flex justify-content-end">
+          <p><strong>Size:</strong><%= @sizes.find(@product.size_id).title %></p>
+        </div>
+        <div class="col d-flex justify-content-start price">
+          <p><strong>Price:</strong><%= @product.price %></p>
+        </div>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="container col-10 d-flex justify-content-center bg-light">
+          <p class="text-left"><%= @product.description %></p>
+        </div>
+      </div>
+      <div class="row d-flex justify-content-center my-3">
+        <button type="button" class="btn btn-secondary">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 <p id="notice"><%= notice %></p>
 
 <p>
