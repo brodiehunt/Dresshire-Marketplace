@@ -5,13 +5,18 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
+      
   end
 
-  def search 
-    @products = Product.all
+  def search  
+    @products = Product.all 
+      filtering_params(params).each do |key, value|
+        @products = @products.public_send("filter_by_#{key}", value) if value.present?
+      end
     @brands = Brand.all
     @styles = Style.all
     @sizes = Size.all
+    puts params
   end
 
   # GET /products/1
@@ -86,5 +91,9 @@ class ProductsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def product_params
       params.require(:product).permit(:title, :description, :brand_id, :style_id, :size_id, :price, :picture)
+    end
+
+    def filtering_params(params)
+      params.slice(:brand_id, :style_id, :size_id)
     end
 end

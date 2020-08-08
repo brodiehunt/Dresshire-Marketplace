@@ -13,9 +13,11 @@
                   </button>
                   <div class="collapse" id="collapseExample1">
                     <div class="card card-body">
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <a class="dropdown-item" href="#">Something else here</a>
+                      <%= link_to "Mini", search_products_path(style_id: 1), class: "dropdown-item" %>
+                      <%= link_to "Midi", search_products_path(style_id: 2), class: "dropdown-item" %>
+                      <%= link_to "Full Length", search_products_path(style_id: 3), class: "dropdown-item" %>
+                      <%= link_to "Formal", search_products_path(style_id: 4), class: "dropdown-item" %>
+                      <%= link_to "Other", search_products_path(style_id: 6), class: "dropdown-item" %>
                     </div>
                   </div>
                 </div>
@@ -25,9 +27,11 @@
                   </button>
                   <div class="collapse" id="collapseExample2">
                     <div class="card card-body">
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <a class="dropdown-item" href="#">Something else here</a>
+                      <%= link_to "Zimmerman", search_products_path(brand_id: 1), class: "dropdown-item" %>
+                      <%= link_to "Nookie", search_products_path(brand_id: 2), class: "dropdown-item" %>
+                      <%= link_to "Bec + Bridge", search_products_path(brand_id: 3), class: "dropdown-item" %>
+                      <%= link_to "Jadore", search_products_path(brand_id: 4), class: "dropdown-item" %>
+                      <%= link_to "Other", search_products_path(brand_id: 6), class: "dropdown-item" %>
                     </div>
                   </div>
                 </div>
@@ -37,12 +41,11 @@
                   </button>
                   <div class="collapse" id="collapseExample3">
                     <div class="card card-body">
-                      <a class="dropdown-item" href="#">New South Wales</a>
-                      <a class="dropdown-item" href="#">Queensland</a>
-                      <a class="dropdown-item" href="#">Victoria</a>
-                      <a class="dropdown-item" href="#">Tasmania</a>
-                      <a class="dropdown-item" href="#">Canberra</a>
-                      <a class="dropdown-item" href="#">Western Australia</a>
+                      <%= link_to "New South Wales", listings_path(state_id: 1), class: "dropdown-item" %>
+                      <%= link_to "Victoria", listings_path(state_id: 2), class: "dropdown-item" %>
+                      <%= link_to "South Australia", listings_path(state_id: 3), class: "dropdown-item" %>
+                      <%= link_to "Queensland", listings_path(state_id: 5), class: "dropdown-item" %>
+                      <%= link_to "Western Australia", listings_path(state_id: 6), class: "dropdown-item" %>
                     </div>
                   </div>
                 </div>
@@ -147,9 +150,11 @@
                 Styles
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <%= link_to "Mini", search_products_path(style_id: 1), class: "dropdown-item" %>
+              <%= link_to "Midi", search_products_path(style_id: 2), class: "dropdown-item" %>
+              <%= link_to "Full Length", search_products_path(style_id: 3), class: "dropdown-item" %>
+              <%= link_to "Formal", search_products_path(style_id: 4), class: "dropdown-item" %>
+              <%= link_to "Other", search_products_path(style_id: 6), class: "dropdown-item" %>
             </div>
           </div>
         </li>
@@ -159,9 +164,11 @@
               Brands
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <%= link_to "Zimmerman", search_products_path(brand_id: 1), class: "dropdown-item" %>
+              <%= link_to "Nookie", search_products_path(brand_id: 2), class: "dropdown-item" %>
+              <%= link_to "Bec + Bridge", search_products_path(brand_id: 3), class: "dropdown-item" %>
+              <%= link_to "Jadore", search_products_path(brand_id: 4), class: "dropdown-item" %>
+              <%= link_to "Other", search_products_path(brand_id: 6), class: "dropdown-item" %>
             </div>
           </div>
         </li>
@@ -171,12 +178,11 @@
               Location
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">New South Wales</a>
-              <a class="dropdown-item" href="#">Queensland</a>
-              <a class="dropdown-item" href="#">Victoria</a>
-              <a class="dropdown-item" href="#">Tasmania</a>
-              <a class="dropdown-item" href="#">Canberra</a>
-              <a class="dropdown-item" href="#">Western Australia</a>
+              <%= link_to "New South Wales", listings_path(state_id: 1), class: "dropdown-item" %>
+              <%= link_to "Victoria", listings_path(state_id: 2), class: "dropdown-item" %>
+              <%= link_to "South Australia", listings_path(state_id: 3), class: "dropdown-item" %>
+              <%= link_to "Queensland", listings_path(state_id: 5), class: "dropdown-item" %>
+              <%= link_to "Western Australia", listings_path(state_id: 6), class: "dropdown-item" %>
             </div>
           </div>
         </li>
