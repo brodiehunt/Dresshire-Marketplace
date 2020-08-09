@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :initialize_session, only: [:add_to_cart ]
+  before_action :cart_items, only: [ :cart, :show ]
 
   # GET /products
   # GET /products.json
@@ -81,6 +83,22 @@ class ProductsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  # Methods for implementing cart session 
+  def cart 
+    @cart = Product.find(session[:cart])
+  end
+
+  def add_to_cart
+    id = params[:id].to_i
+    session[:cart] << id unless session[:cart].include?(id)
+    redirect_to product_path(id)
+  end
+
+  def remove_from_cart
+    id = params[:id].to_i
+    session[:cart].delete(id)
+    redirect_to product_path(id)
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -95,5 +113,13 @@ class ProductsController < ApplicationController
 
     def filtering_params(params)
       params.slice(:brand_id, :style_id, :size_id)
+    end
+
+    def initialize_session
+      session[:cart] ||= []
+    end
+
+    def cart_items
+      @cart = Product.find(session[:cart])
     end
 end

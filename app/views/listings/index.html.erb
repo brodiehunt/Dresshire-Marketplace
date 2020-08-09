@@ -4,17 +4,15 @@
   <div class="row" style="min-height: 50vh;">
   <%# This row will hold navigation for messages profile and manage ads %>
     <div class="col-12 col-lg-3 border mt-3">
-      <ul class="nav flex-lg-column mt-3 justify-content-center justify-content-lg-start">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Profile Settings</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Manage Listings</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Messages</a>
-        </li>
-      </ul>
+      <div class="flex-lg-column mt-3 justify-content-center justify-content-lg-start"> 
+        <%= bootstrap_form_with(url: listings_path, :method => "get") do |form| %>
+          <%= form.select :brand_id, @brands.map {|s| [s.title, s.id ]} %>
+          <%= form.select :style_id, @styles.map {|s| [s.title, s.id ]} %>
+          <%= form.select :size_id, @sizes.map {|s| [s.title, s.id ]} %>
+          <%= form.select :state_id, @states.map {|s| [s.title, s.id ]} %>
+          <%= form.submit("Search", :name => nil) %>
+        <% end %>
+      </div>
     </div>
     <div class="col-12 col-lg-8 border ml-sm-3 mt-3">
       <div class="container-fluid border mt-3 d-flex flex-wrap justify-content-center">
@@ -35,51 +33,9 @@
           <p>There are no listings by that description</p>
         <% end %>
       </div> 
-    <div>
+    </div>
   </div>
 </div>
 
 
-<p id="notice"><%= notice %></p>
 
-<h1>Listings</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Brand</th>
-      <th>Style</th>
-      <th>Size</th>
-      <th>State</th>
-      <th>City</th>
-      <th>Postcode</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @listings.each do |listing| %>
-      <tr>
-        <td><%= listing.title %></td>
-        <td><%= listing.description %></td>
-        <td><%= listing.price %></td>
-        <td><%= listing.brand_id %></td>
-        <td><%= listing.style_id %></td>
-        <td><%= listing.size_id %></td>
-        <td><%= listing.state_id %></td>
-        <td><%= listing.city_id %></td>
-        <td><%= listing.postcode_id %></td>
-        <td><%= link_to 'Show', listing %></td>
-        <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
-        <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Listing', new_listing_path %>

@@ -9,7 +9,7 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active" style="max-height: 400px;">
-          <img class="d-block w-100" style="max-height: 400px;" src="https://marketplace-public-bucket.s3-ap-southeast-2.amazonaws.com/mountain.png" alt="First slide">
+          <img class="d-block w-100" style="max-height: 400px;" src="https://marketplace-public-bucket.s3-ap-southeast-2.amazonaws.com/banner1.jpg" alt="First slide">
         </div>
         <div class="carousel-item" style="max-height: 400px;">
           <img class="d-block w-100" style="max-height: 400px;" src="https://marketplace-public-bucket.s3-ap-southeast-2.amazonaws.com/dreamstime_m_103202288-duotone.jpg" alt="Second slide">
@@ -36,21 +36,23 @@
 <%# container for shop by brand items %>
 <div class="container d-flex justify-content-center justify-content-lg-between my-3 bg-light flex-wrap" style="min-height: 250px;">
   <div class="card text-white col-10 col-md-5 col-lg-3 my-3">
-    <img class="card-img" src="https://marketplace-public-bucket.s3-ap-southeast-2.amazonaws.com/mountain.png" alt="Card image">
-    <div class="card-img-overlay">
-      <h5 class="card-title">Brand 1</h5>   
+    
+    <img class="card-img" src="https://marketplace-public-bucket.s3-ap-southeast-2.amazonaws.com/alicemccall.jpg" alt="Card image">
+    
+    <div class="card-img-overlay d-flex justify-content-center">
+      <h5 class="card-title"><a href="<%= search_products_path(brand_id: 5) %>">Alice McCall</a></h5>   
     </div>
   </div>
   <div class="card text-white col-10 col-md-5 col-lg-3 my-3">
-    <img class="card-img" src="https://marketplace-public-bucket.s3-ap-southeast-2.amazonaws.com/mountain.png" alt="Card image">
-    <div class="card-img-overlay">
-      <h5 class="card-title">Brand 2</h5>
+    <img class="card-img" src="https://marketplace-public-bucket.s3-ap-southeast-2.amazonaws.com/bec%2Bbridge.jpg" alt="Card image">
+    <div class="card-img-overlay d-flex justify-content-center">
+      <h5 class="card-title"><a href="<%= search_products_path(brand_id: 3) %>">Bec + Bridge</a></h5>
     </div>
   </div>
   <div class="card text-white col-10 col-md-5 col-lg-3 my-3">
-    <img class="card-img" src="https://marketplace-public-bucket.s3-ap-southeast-2.amazonaws.com/mountain.png" alt="Card image">
-    <div class="card-img-overlay">
-      <h5 class="card-title">Brand 3</h5>
+    <img class="card-img" src="https://marketplace-public-bucket.s3-ap-southeast-2.amazonaws.com/zimmerman.jpg" alt="Card image">
+    <div class="card-img-overlay d-flex justify-content-center">
+      <h5 class="card-title"><a href="<%= search_products_path(brand_id: 1) %>">Zimmerman</a></h5>
     </div>
   </div>
 </div>
@@ -62,28 +64,16 @@
 <%# div for instagram posts %>
 <div class="container col-10 col-xl-9 d-flex justify-content-center justify-content-sm-between my-3 bg-light flex-wrap">
   <div class="card text-white col-10 col-sm-5 col-xl-2 my-3">
-    <img class="card-img" src="https://marketplace-public-bucket.s3-ap-southeast-2.amazonaws.com/mountain.png" alt="Card image">
-    <div class="card-img-overlay">
-      <h5 class="card-title">Brand 1</h5>   
-    </div>
+    <img class="card-img" src="https://marketplace-public-bucket.s3-ap-southeast-2.amazonaws.com/instagram4.jpg" alt="Card image">
   </div>
   <div class="card text-white col-10 col-sm-5 my-3 col-xl-3">
-    <img class="card-img" src="https://marketplace-public-bucket.s3-ap-southeast-2.amazonaws.com/mountain.png" alt="Card image">
-    <div class="card-img-overlay">
-      <h5 class="card-title">Brand 1</h5>   
-    </div>
+    <img class="card-img" src="https://marketplace-public-bucket.s3-ap-southeast-2.amazonaws.com/Instagram1.jpg" alt="Card image">
   </div>
   <div class="card text-white col-10 col-sm-5 my-3 col-xl-3">
-    <img class="card-img" src="https://marketplace-public-bucket.s3-ap-southeast-2.amazonaws.com/mountain.png" alt="Card image">
-    <div class="card-img-overlay">
-      <h5 class="card-title">Brand 1</h5>   
-    </div>
+    <img class="card-img" src="https://marketplace-public-bucket.s3-ap-southeast-2.amazonaws.com/Instagram2.jpg" alt="Card image">
   </div>
   <div class="card text-white col-10 col-sm-5 my-3 col-xl-2">
-    <img class="card-img" src="https://marketplace-public-bucket.s3-ap-southeast-2.amazonaws.com/mountain.png" alt="Card image">
-    <div class="card-img-overlay">
-      <h5 class="card-title">Brand 1</h5>   
-    </div>
+    <img class="card-img" src="https://marketplace-public-bucket.s3-ap-southeast-2.amazonaws.com/instagram3.jpg" alt="Card image">
   </div>
 </div>
 <%# container for shop by style heading %>
@@ -93,15 +83,15 @@
 <%# container for shop by style %>
 <div class="container d-flex justify-content-center justify-content-sm-between my-3 bg-light flex-wrap">
   <div class="card text-white col-10 col-sm-4 my-3">
-    <img class="card-img" src="https://marketplace-public-bucket.s3-ap-southeast-2.amazonaws.com/mountain.png" alt="Card image">
-    <div class="card-img-overlay">
-      <h5 class="card-title">Brand 1</h5>   
+    <img class="card-img" src="https://marketplace-public-bucket.s3-ap-southeast-2.amazonaws.com/midi.jpg" alt="Card image">
+    <div class="card-img-overlay d-flex justify-content-center">
+      <h5 class="card-title"><a href="<%= search_products_path(style_id: 1) %>">Midi</a></h5>   
     </div>
   </div>
   <div class="card text-white col-10 col-sm-4 my-3">
-    <img class="card-img" src="https://marketplace-public-bucket.s3-ap-southeast-2.amazonaws.com/mountain.png" alt="Card image">
-    <div class="card-img-overlay">
-      <h5 class="card-title">Brand 1</h5>   
+    <img class="card-img" src="https://marketplace-public-bucket.s3-ap-southeast-2.amazonaws.com/formal.jpg" alt="Card image">
+    <div class="card-img-overlay d-flex justify-content-center">
+      <h5 class="card-title"><a href="<%= search_products_path(style_id: 4)%>">Formal</a></h5>   
     </div>
   </div>
 </div>

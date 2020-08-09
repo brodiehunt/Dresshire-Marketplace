@@ -4,7 +4,14 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
+    @brands = Brand.all
+    @styles = Style.all
+    @sizes = Size.all
+    @states = State.all
     @listings = Listing.all
+    filtering_params(params).each do |key, value|
+      @listings = @listings.public_send("filter_by_#{key}", value) if value.present?
+    end
   end
 
   def dashboard
@@ -93,5 +100,9 @@ class ListingsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def listing_params
       params.require(:listing).permit(:title, :description, :price, :brand_id, :style_id, :size_id, :state_id, :city_id, :postcode_id, :picture)
+    end
+
+    def filtering_params(params)
+      params.slice(:brand_id, :style_id, :size_id, :state_id)
     end
 end

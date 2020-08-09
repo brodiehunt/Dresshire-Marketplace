@@ -1,13 +1,13 @@
 <%= render "shared/top_nav_marketplace"%>
-  <%# main container after top nav bar %>
-<div class="container">
+<%# main container after top nav bar %>
+<div class="container border">
   <%# One row will exist with 2 columns to hold all content %>
   <div class="row" style="min-height: 50vh;">
     <%# This row will hold navigation for messages profile and manage ads %>
     <div class="col-12 col-sm-3 border mt-3">
       <ul class="nav flex-sm-column mt-3 justify-content-center justify-content-sm-start">
         <li class="nav-item">
-          <a class="nav-link active" href="<%= profile_path %>">Profile Settings</a>
+          <a class="nav-link active" href="<%= profile_path(current_user.id) %>">Profile Settings</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="<%= listings_dashboard_path %> ">Manage Listings</a>
@@ -17,34 +17,19 @@
         </li>
       </ul>
     </div>
-    <div class="col-12 col-sm-8 border ml-sm-3 mt-3">
+    <div class="col-12 col-sm-8 ml-sm-3 border mt-3">
       <%# This container will have the profile information %>
-      <div class="container-fluid profile-update-form border mt-3">
-        <%= render 'form', profile: @profile %>
+      <div class="container-fluid border mt-3">
+        <% @messages.each do |message| %>
+          <div class="card my-3">
+            <p><%= message.body %> </p>
+          </div>
+        <% end %>
       </div>
-      <div class="container-fluid user-email-update-form border mt-3">
-        <p><%= @user[:email]%></p>
-        <p>Implement user email change</p>
-      </div>
-      <div class="container-fluid user-password-update-form border mt-3">
-        <p> Implement user password change</p>
-      </div>
+      <%= form_for [@conversation, @message] do |f| %>
+        <%= f.text_area :body, class: "textarea", placeholder: "Message user" %>
+        <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
+        <%= f.submit "Send Message", class: "button btn-secondary"%>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
