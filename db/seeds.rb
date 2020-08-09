@@ -10,7 +10,7 @@ state_list = [ "New South Wales", "Victoria", "South Australia", "ACT", "Queensl
 city_list = [ "Sydney", "Brisbane", "Melbourne", "Canberra", "Darwin", "Wollongong", "Perth", "Adelaide", "Hobart" ]
 postcode_list = [ "2233", "2232", "2231", "2230" ]
 size_list = [ 6, 8, 10, 12, 14, 16, 18, 20 ]
-brand_list = [ "Zimmerman", "Nookie", "Bec + Bridge", "Jadore", "Alex McCall", "other" ]
+brand_list = [ "Zimmerman", "Nookie", "Bec + Bridge", "Jadore", "Alice McCall", "other" ]
 style_list = [ "Mini", "Midi", "Full length", "Formal", "Jumpsuit", "other"]
 
 state_list.each do |state|
