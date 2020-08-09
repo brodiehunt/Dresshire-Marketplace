@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  before_action :initialize_session, only: [:add_to_cart ]
+  before_action :initialize_session, only: [:add_to_cart, :show]
   before_action :cart_items, only: [ :cart, :show ]
 
   # GET /products

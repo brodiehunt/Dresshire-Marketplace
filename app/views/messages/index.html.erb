@@ -30,6 +30,7 @@
         <%= f.text_area :body, class: "textarea", placeholder: "Message user" %>
         <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
         <%= f.submit "Send Message", class: "button btn-secondary"%>
+      <% end %>
     </div>
   </div>
 </div>
