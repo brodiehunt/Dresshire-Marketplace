@@ -24,21 +24,14 @@
           <% @conversations.each do |conversation| %>
             <div class="card my-3">
               <div class="card-header">
-                <a href="<%= listing_path(listing.id) %>"><%= listing.title %></a>
+                <% if conversation.recipient_id == current_user.id %>
+                  <%= link_to "#{@profiles.find(conversation.sender_id).first_name}", conversation_messages_path(conversation) %>
+                <% else %>
+                  <%= link_to "#{@profiles.find(conversation.recipient_id).first_name}", conversation_messages_path(conversation) %>
+                <% end%>
               </div>
               <div class="card-body">
-                <div class="row">
-                  <div class="col-8">
-                    <p class="card-text"><%= listing.description %></p>
-                    <div>
-                      <a href="<%= edit_listing_path(listing.id)%>" class="btn btn-primary">Edit</a>
-                      <a href="#" class="btn btn-primary">Delete</a> 
-                    </div>
-                  </div>
-                  <div class="col-3 d-flex">
-                    <%= image_tag (listing.picture if listing.picture.attached?), :class => "img-fluid" %> 
-                  </div>
-                </div>
+                <%= conversation.messages.last %>
               </div>
             </div>
           <% end %>
