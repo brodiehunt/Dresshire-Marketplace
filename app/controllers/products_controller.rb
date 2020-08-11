@@ -24,11 +24,13 @@ class ProductsController < ApplicationController
 
   # GET /products/new
   def new
+    redirect_to root_path unless current_user.id == 1
     @product = Product.new
   end
 
   # GET /products/1/edit
   def edit
+    redirect_to root_path unless current_user.id == 1
   end
 
   # POST /products

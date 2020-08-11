@@ -28,7 +28,9 @@ class ListingsController < ApplicationController
   end
 
   # GET /listings/1/edit
+  # redirects any user who
   def edit
+    redirect_to root_path unless current_user.id == @listing.user_id
   end
 
   # POST /listings

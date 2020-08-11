@@ -13,7 +13,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/1.json
   def show
       @user = current_user
-    redirect_to root_path unless current_user.id == params[:id]
+    redirect_to root_path unless current_user.id == params[:id].to_i
   end
 
   # GET /profiles/new
