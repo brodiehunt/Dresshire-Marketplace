@@ -2,13 +2,12 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :initialize_session, only: [:add_to_cart, :show, :cart]
   before_action :cart_items, only: [ :cart, :show ]
-  before_action :admin_user, only: [ :new, :edit, :create, :update, :destroy ]
+  before_action :model_instances, only: [ :search, :show, :new, :edit, :cart]
 
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
-      
+    @products = Product.all    
   end
 
   def search  
@@ -16,33 +15,20 @@ class ProductsController < ApplicationController
       filtering_params(params).each do |key, value|
         @products = @products.public_send("filter_by_#{key}", value) if value.present?
       end
-    @brands = Brand.all
-    @styles = Style.all
-    @sizes = Size.all
-    puts params
   end
 
   # GET /products/1
   # GET /products/1.json
   def show
-    @brands = Brand.all
-    @styles = Style.all
-    @sizes = Size.all
   end
 
   # GET /products/new
   def new
     @product = Product.new
-    @brands = Brand.all
-    @styles = Style.all
-    @sizes = Size.all
   end
 
   # GET /products/1/edit
   def edit
-    @brands = Brand.all
-    @styles = Style.all
-    @sizes = Size.all
   end
 
   # POST /products
@@ -124,9 +110,10 @@ class ProductsController < ApplicationController
       @cart = Product.find(session[:cart])
     end
 
-    def admin_user
-      if current_user.id != 1
-        redirect_to root_path
-      end
+    def model_instances
+      @brands = Brand.all
+      @styles = Style.all
+      @sizes = Size.all
     end
+
 end

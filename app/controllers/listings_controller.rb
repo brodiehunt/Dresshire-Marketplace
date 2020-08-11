@@ -1,14 +1,11 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [ :show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [ :index, :show ]
+  before_action :model_instances, only: [ :index, :show, :new, :create, :edit ]
 
   # GET /listings
   # GET /listings.json
   def index
-    @brands = Brand.all
-    @styles = Style.all
-    @sizes = Size.all
-    @states = State.all
     @listings = Listing.all
     filtering_params(params).each do |key, value|
       @listings = @listings.public_send("filter_by_#{key}", value) if value.present?
@@ -22,34 +19,16 @@ class ListingsController < ApplicationController
   # GET /listings/1
   # GET /listings/1.json
   def show
-    @brands = Brand.all
-    @styles = Style.all
-    @sizes = Size.all
-    @states = State.all
-    @postcodes = Postcode.all
-    @cities = City.all
     @users = User.all
   end
 
   # GET /listings/new
   def new
     @listing = Listing.new
-    @styles = Style.all
-    @brands = Brand.all
-    @sizes = Size.all
-    @states = State.all
-    @postcodes = Postcode.all
-    @cities = City.all
   end
 
   # GET /listings/1/edit
   def edit
-    @styles = Style.all
-    @brands = Brand.all
-    @sizes = Size.all
-    @states = State.all
-    @postcodes = Postcode.all
-    @cities = City.all
   end
 
   # POST /listings
@@ -66,6 +45,7 @@ class ListingsController < ApplicationController
         format.json { render json: @listing.errors, status: :unprocessable_entity }
       end
     end
+    
   end
 
   # PATCH/PUT /listings/1
@@ -105,5 +85,14 @@ class ListingsController < ApplicationController
 
     def filtering_params(params)
       params.slice(:brand_id, :style_id, :size_id, :state_id)
+    end
+    
+    def model_instances
+      @styles = Style.all
+      @brands = Brand.all
+      @sizes = Size.all
+      @states = State.all
+      @postcodes = Postcode.all
+      @cities = City.all
     end
 end
