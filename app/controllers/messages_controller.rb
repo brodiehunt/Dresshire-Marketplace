@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
       @sender = Profile.find_by(user_id: @conversation.sender_id)
       @recipient = Profile.find_by(user_id: @conversation.recipient_id)
     else
-      @sender = Profile.find_by(user_id: @conversation.recipeint_id)
+      @sender = Profile.find_by(user_id: @conversation.recipient_id)
       @recipient = Profile.find_by(user_id: @conversation.sender_id)
     end
   end
