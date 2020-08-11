@@ -1,7 +1,8 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  before_action :initialize_session, only: [:add_to_cart, :show]
+  before_action :initialize_session, only: [:add_to_cart, :show, :cart]
   before_action :cart_items, only: [ :cart, :show ]
+  before_action :admin_user, only: [ :new, :edit, :create, :update, :destroy ]
 
   # GET /products
   # GET /products.json
@@ -121,5 +122,11 @@ class ProductsController < ApplicationController
 
     def cart_items
       @cart = Product.find(session[:cart])
+    end
+
+    def admin_user
+      if current_user.id != 1
+        redirect_to root_path
+      end
     end
 end

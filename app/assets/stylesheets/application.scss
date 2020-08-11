@@ -16,10 +16,12 @@
 @import "rails_bootstrap_forms";
 
 
-
-.card-title {
-  color: black;
+.footer-lists {
+  list-style-type: none;
+  color: white;
 }
+
+
 
 a {
   color: pink;
@@ -50,8 +52,6 @@ h6,
 h4 {
   color: pink;
 }
-
-
 
 
 .website-header-logo {
@@ -165,4 +165,14 @@ label {
   right: 0px;
   background-color: rgba(40, 40, 40, 0.3);
   
+}
+
+@media only screen and (max-width: 600px) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h6 {
+    font-size: 2vh;
+  }
 }

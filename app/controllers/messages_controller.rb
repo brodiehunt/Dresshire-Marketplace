@@ -1,10 +1,17 @@
 class MessagesController < ApplicationController
   before_action :find_conversation
+  before_action :authenticate_user!
 
   def index
     @messages = @conversation.messages
-
     @message = @conversation.messages.new
+    if @conversation.sender_id == current_user.id
+      @sender = Profile.find_by(user_id: @conversation.sender_id)
+      @recipient = Profile.find_by(user_id: @conversation.recipient_id)
+    else
+      @sender = Profile.find_by(user_id: @conversation.recipeint_id)
+      @recipient = Profile.find_by(user_id: @conversation.sender_id)
+    end
   end
 
   def create

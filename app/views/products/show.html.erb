@@ -1,13 +1,11 @@
 <%= render "shared/top_nav_online"%>
 <div class="container">
-  <div class="row my-5 justify-content-center border" style="max-height: 50vh;">
+  <div class="row my-5 justify-content-center border">
     <div class="col-10 col-md-8 border">
       <div class="row d-flex justify-content-center">
         <div class="col-10 col-md-5" style="max-height: 50vh;">
-          <%= image_tag @product.picture if @product.picture.attached? %> 
+          <%= image_tag @product.picture if @product.picture.attached? %>    
         </div>
-      </div>
-      <div class="row">
       </div>
     </div>
     <div class="col-10 col-md-4 border">

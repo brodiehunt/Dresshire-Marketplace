@@ -22,7 +22,13 @@
       <div class="container-fluid border mt-3">
         <% @messages.each do |message| %>
           <div class="card my-3">
-            <p><%= message.body %> </p>
+            <% if message.user_id == current_user.id %>
+              <h6 class="text-right"><%= @sender.first_name %></h6>
+              <p class="text-right"><%= message.body %> </p>
+            <% else %>
+              <h6><%= @recipient.first_name %></h6>
+              <p><%= message.body %> </p>
+            <% end %>
           </div>
         <% end %>
       </div>
